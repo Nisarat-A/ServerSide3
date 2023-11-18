@@ -19,22 +19,14 @@ public class ProductListServlet extends HttpServlet {
         String pageParam = request.getParameter("page");
         String pageSizeParam = request.getParameter("pageSize");
         int page = pageParam == null ? 1 : Integer.valueOf(pageParam);
-        int pageSize = pageSizeParam == null ? productRepository.getDefaultPageSize() :
-                Integer.valueOf(pageSizeParam);
+        int pageSize = pageSizeParam == null ? productRepository.getDefaultPageSize() : Integer.valueOf(pageSizeParam);
         List<Product> productList = productRepository.findAll(page, pageSize);
         request.setAttribute("products", productList);
         request.setAttribute("page", page);
         request.setAttribute("pageSize", pageSize);
         request.setAttribute("itemCount", productRepository.countAll());
-        int itemCount = productRepository.countAll();
-        int totalPage = itemCount / pageSize + (itemCount % pageSize == 0 ? 0 : 1);
-        request.setAttribute("totalPage", totalPage);
-        //getServletContext().getRequestDispatcher("/product-list.jsp").forward(request, response);
-        getServletContext().getRequestDispatcher("/new-product-list.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/product-list.jsp").forward(request, response);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 }
+ 

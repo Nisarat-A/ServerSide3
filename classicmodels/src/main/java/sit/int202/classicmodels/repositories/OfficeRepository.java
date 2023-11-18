@@ -15,17 +15,21 @@ public class OfficeRepository {
         }
         return entityManager;
     }
+
     public List<Office> findAll() {
         return getEntityManager().createNamedQuery("OFFICE.FIND_ALL").getResultList();
     }
+
     public Office find(String officeCode) {
         return getEntityManager().find(Office.class, officeCode);
     }
+
     public void close() {
         if (entityManager != null && entityManager.isOpen()) {
             entityManager.close();
         }
     }
+
     public boolean insert(Office office) {
         try {
             EntityManager entityManager = getEntityManager();
@@ -89,6 +93,7 @@ public class OfficeRepository {
         }
         return false;
     }
+
     public List<Office> findByCityOrCountry(String cityOrCountry) {
         cityOrCountry = cityOrCountry.toLowerCase() + '%';
         Query query = getEntityManager().createNamedQuery("OFFICE.FIND_BY_CITY_OR_COUNTRY");

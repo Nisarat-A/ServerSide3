@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>JSP - Hello World</title>
+<<<<<<< HEAD
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         // function testAjax() {
@@ -83,5 +84,13 @@
         ... they are popular collectibles for every automobile fan.rs! .. </p>
 </div>
 
+=======
+</head>
+<body>
+<h1><%= "Hello World!" %>
+</h1>
+<br/>
+<a href="hello-servlet">Hello Servlet</a>
+>>>>>>> parent of f73083c (AJAX)
 </body>
 </html>
